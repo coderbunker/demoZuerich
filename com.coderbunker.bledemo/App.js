@@ -1,8 +1,23 @@
 import React from 'react';
-import { StyleSheet, Text, View, AppState, Platform, PermissionsAndroid, TouchableHighlight } from 'react-native';
+import {
+    StyleSheet,
+    Text,
+    View,
+    AppState,
+    Platform,
+    PermissionsAndroid,
+    TouchableHighlight,
+    NativeAppEventEmitter,
+    NativeEventEmitter,
+    NativeModules,} from 'react-native';
 import BleManager from 'react-native-ble-manager';
+import Permissions from 'react-native-permissions';
+
+const BleManagerModule = NativeModules.BleManager;
+const bleManagerEmitter = new NativeEventEmitter(BleManagerModule);
 
 export default class App extends React.Component {
+
     constructor() {
 
         super();
@@ -19,23 +34,12 @@ export default class App extends React.Component {
     componentDidMount() {
         AppState.addEventListener('change', this.handleAppStateChange);
 
-        BleManager.start({ showAlert: false });
+        BleManager.start().then(() => {
+            console.log('BLE Module initialized');
+        }).catch(function (e) {
+            console.log("ERROR: Couldn't start BleManager: " + e)
+        });
 
-        if (Platform.OS === 'android' && Platform.Version >= 23) {
-            PermissionsAndroid.check(PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION).then((result) => {
-                if (result) {
-                    console.log("Permission is OK");
-                } else {
-                    PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION).then((result) => {
-                        if (result) {
-                            console.log("User accept");
-                        } else {
-                            console.log("User refuse");
-                        }
-                    });
-                }
-            });
-        }
     }
 
     handleAppStateChange(nextAppState) {
@@ -43,6 +47,8 @@ export default class App extends React.Component {
             console.log('App has come to the foreground!')
             BleManager.getConnectedPeripherals([]).then((peripheralsArray) => {
                 console.log('Connected peripherals: ' + peripheralsArray.length);
+            }).catch(function (e) {
+                console.log(e); // "oh, no!"
             });
         }
         this.setState({ appState: nextAppState });
@@ -54,8 +60,7 @@ export default class App extends React.Component {
                 console.log('Scanning...');
                 this.setState({ scanning: true });
             }).catch(function (error) {
-                console.log('There has been a problem with your fetch operation: ' + error.message);
-                throw error;
+                console.log('ERROR: There has been a problem with your fetch operation: ' + error.message);
             });
         }
     }
