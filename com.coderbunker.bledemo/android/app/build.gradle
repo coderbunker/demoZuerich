@@ -5,7 +5,7 @@ android {
   buildToolsVersion '25.0.2'
 
   defaultConfig {
-    applicationId "com.demozuerich.bledemo"
+    applicationId "com.atlas.ai"
     minSdkVersion 19
     targetSdkVersion 25
     versionCode 1
@@ -15,7 +15,7 @@ android {
       abiFilters 'armeabi-v7a', 'x86'
     }
     manifestPlaceholders = [
-      'appAuthRedirectScheme': 'com.demozuerich.bledemo'
+      'appAuthRedirectScheme': 'com.atlas.ai'
     ]
   }
   buildTypes {
@@ -46,10 +46,12 @@ repositories{
   }
   mavenLocal()
   maven { url 'https://maven.fabric.io/public' }
+  maven { url "https://jitpack.io" }
 }
 
 dependencies {
-    compile project(':react-native-ble-manager')
+  compile project(':react-native-ble-manager')
+  compile 'com.github.thefuntasty:CreditCardEntry:1.4.8.4'
   compile fileTree(dir: 'libs', include: ['*.jar'])
   testCompile 'junit:junit:4.12'
   compile 'com.android.support:appcompat-v7:25.3.1'
