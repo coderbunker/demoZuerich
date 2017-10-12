@@ -15,5 +15,7 @@
       "scheme": "exp54c235c211744c7eafcca850a1dd6fd0",
       "androidExpoViewUrl": "https://s3.amazonaws.com/exp-exponent-view-code/android-v1.20.0-sdk21.0.0-43fd9293-cb77-4916-a265-5f71e524e681.tar.gz"
     }
-  }
+  },
+  "name": "reactble2",
+  "displayName": "BleDemo"
 }
