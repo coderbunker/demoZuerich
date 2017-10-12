@@ -1,21 +1,27 @@
 {
   "expo": {
-    "name": "BleDemo",
-    "version": "1.0.0",
-    "slug": "ble-demo",
+    "name": "Odb",
+    "description": "BLE Demo",
+    "slug": "bledem",
+    "privacy": "public",
     "sdkVersion": "21.0.0",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "primaryColor": "#cccccc",
     "ios": {
-      "bundleIdentifier": "com.demozuerich.bledemo"
+      "bundleIdentifier": "com.coderbunker.bledem",
+      "publishBundlePath": "ios/odb/Supporting/shell-app.bundle",
+      "publishManifestPath": "ios/odb/Supporting/shell-app-manifest.json"
     },
     "android": {
-      "package": "com.demozuerich.bledemo"
+        "package": "com.coderbunker.bledem"
     },
+    "androidStatusBarColor": "#373737",
     "isDetached": true,
     "detach": {
-      "scheme": "exp54c235c211744c7eafcca850a1dd6fd0",
+      "scheme": "exp8c96291e9d6044ccad713f0fc1de6b0a",
+      "iosExpoViewUrl": "https://s3.amazonaws.com/exp-exponent-view-code/ios-v1.20.5-sdk21.0.0-11e2eb3f-807e-48d4-8685-b0694f874637.tar.gz",
       "androidExpoViewUrl": "https://s3.amazonaws.com/exp-exponent-view-code/android-v1.20.0-sdk21.0.0-43fd9293-cb77-4916-a265-5f71e524e681.tar.gz"
     }
-  },
-  "name": "reactble2",
-  "displayName": "BleDemo"
+  }
 }

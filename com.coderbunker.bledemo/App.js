@@ -9,12 +9,10 @@ import {
     TouchableHighlight,
     NativeAppEventEmitter,
     NativeEventEmitter,
-    NativeModules,} from 'react-native';
+    NativeModules,
+} from 'react-native';
 import BleManager from 'react-native-ble-manager';
 import Permissions from 'react-native-permissions';
-
-const BleManagerModule = NativeModules.BleManager;
-const bleManagerEmitter = new NativeEventEmitter(BleManagerModule);
 
 export default class App extends React.Component {
 
@@ -39,7 +37,6 @@ export default class App extends React.Component {
         }).catch(function (e) {
             console.log("ERROR: Couldn't start BleManager: " + e)
         });
-
     }
 
     handleAppStateChange(nextAppState) {
@@ -64,25 +61,25 @@ export default class App extends React.Component {
             });
         }
     }
-    render() {
-        return (
-            <View style={styles.container}>
+  render() {
+    return (
+        <View style={styles.container}>
             <TouchableHighlight style={{ marginTop: 40, margin: 20, padding: 20, backgroundColor: '#ccc' }} onPress={() => this.startScan()}>
                 <Text>Scan Bluetooth ({this.state.scanning ? 'on' : 'off'})</Text>
             </TouchableHighlight>
-                <Text>Open up App.js to start working on your app!</Text>
-                <Text>Test Message</Text>
-                <Text>Shake your phone to open the developer menu.</Text>
-                </View>
-        );
-    }
+            <Text>Open up App.js to start working on your app!</Text>
+            <Text>Test Message</Text>
+            <Text>Shake your phone to open the developer menu.</Text>
+        </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 });
