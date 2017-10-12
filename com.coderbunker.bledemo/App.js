@@ -51,20 +51,30 @@ export default class App extends React.Component {
         this.setState({ appState: nextAppState });
     }
 
-    startScan() {
+    toggleScan() {
         if (!this.state.scanning) {
             BleManager.scan([], 3, true).then((results) => {
                 console.log('Scanning...');
                 this.setState({ scanning: true });
             }).catch(function (error) {
-                console.log('ERROR: There has been a problem with your fetch operation: ' + error.message);
+                console.log('ERROR: There has been a problem with starting the scan: ' + error.message);
             });
+        }
+        else {
+            BleManager.stopScan()
+                .then(() => {
+                    // Success code
+                    console.log('Scan stopped');
+                    this.setState({ scanning: false });
+                }).catch(function (error) {
+                    console.log('ERROR: There has been a problem with starting the scan: ' + error.message);
+                });
         }
     }
   render() {
     return (
         <View style={styles.container}>
-            <TouchableHighlight style={{ marginTop: 40, margin: 20, padding: 20, backgroundColor: '#ccc' }} onPress={() => this.startScan()}>
+            <TouchableHighlight style={{ marginTop: 40, margin: 20, padding: 20, backgroundColor: '#ccc' }} onPress={() => this.toggleScan()}>
                 <Text>Scan Bluetooth ({this.state.scanning ? 'on' : 'off'})</Text>
             </TouchableHighlight>
             <Text>Open up App.js to start working on your app!</Text>
