@@ -1,0 +1,47 @@
+
+- hosts: all
+  become: true
+  tasks:
+  - name: install nginx
+    apt: name=nginx state=present
+    sudo: yes
+
+  - name: Ensure bash latest versions
+    apt: name=bash update_cache=true state=latest
+
+  - name: Ensure OpenSSl latest versions
+    apt: name=openssl update_cache=true state=latest
+
+  - name: Ensure libssl latest versions
+    apt: name=libpq-dev update_cache=true state=latest
+
+  - name: Ensure python python-psycopg2 latest version
+    apt: name=python-psycopg2 update_cache=true state=latest
+
+  - name: install postgresql
+    apt: name=postgresql update_cache=true  state=installed
+
+  - name: install postgresql-contrib
+    apt: name=postgresql-contrib update_cache=true  state=installed
+
+  - name: Ensure the PostgreSQL service is running
+    service: name=postgresql state=started enabled=yes
+  
+  - name: Ensure database is created
+    become: true
+    become_user: postgres
+    postgresql_db: 
+      name=test
+      state=present
+
+  - name: Restart postgre
+    service: name=postgresql state=restarted enabled=true
+
+  - name: Ensure user has access to the database
+    sudo_user: postgres
+    postgresql_user: db=test
+                 name=test
+                 fe_sendauth=1234
+                 password=1234
+                 priv=ALL
+                 state=present
