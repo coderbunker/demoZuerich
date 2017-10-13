@@ -1,4 +1,4 @@
-// Define the pint on wich the sensor is connectet
+// Define the pin on which the sensor is connected
 const int sensorPin = A0;
 
 void setup() {
@@ -15,7 +15,7 @@ void loop() {
   //Calculate the voltage
   float Volts = (sensorVal/1024.000)*5.000;
 
-  //Write the calculatet voltage to the computer
+  //Write the calculated voltage to the computer
   //Serial.println(Volts);
 
   //Calculate the temperature

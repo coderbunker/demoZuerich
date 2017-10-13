@@ -4,6 +4,10 @@ Below you'll find information about performing common tasks. The most recent ver
 
 If this app can't connect to the packager when running with yarn run android on windows, try this: https://answers.microsoft.com/en-us/windows/forum/windows_10-networking/adapter-priority-setting-unavailable-in-windows-10/d2b63caa-e77c-4b46-88b5-eeeaee00c306?auth=1
 
+additional modules used in this project:
+
+react-native-ble-manager: https://github.com/innoveit/react-native-ble-manager
+
 ## Table of Contents
 
 * [Updating to New Releases](#updating-to-new-releases)
