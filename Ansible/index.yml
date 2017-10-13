@@ -1,10 +1,15 @@
+---
 
 - hosts: all
   become: true
   tasks:
+
   - name: install nginx
     apt: name=nginx state=present
     sudo: yes
+
+  - name: install npm
+    apt: name=npm update_cache=true state=latest
 
   - name: Ensure bash latest versions
     apt: name=bash update_cache=true state=latest
@@ -27,21 +32,11 @@
   - name: Ensure the PostgreSQL service is running
     service: name=postgresql state=started enabled=yes
   
-  - name: Ensure database is created
-    become: true
-    become_user: postgres
-    postgresql_db: 
-      name=test
-      state=present
-
   - name: Restart postgre
     service: name=postgresql state=restarted enabled=true
 
-  - name: Ensure user has access to the database
-    sudo_user: postgres
-    postgresql_user: db=test
-                 name=test
-                 fe_sendauth=1234
-                 password=1234
-                 priv=ALL
-                 state=present
+  - name: install graphql npm
+    npm:
+      name: graphql
+      global: yes
+      state: present
