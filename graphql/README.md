@@ -12,12 +12,15 @@ We also recommend to use Ubuntu 16.04 or later.
 
 Install Express GraphQL:
 
+```
 sudo npm install express express-graphql graphql --save
+```
 
 ### Get Started
 
 Setup "express-graphql" as a route on your schema.js. We'll modify a "Hello World" example:
 
+```
 var express = require('express');
 var graphqlHTTP = require('express-graphql');
 var { buildSchema } = require('graphql');
@@ -42,12 +45,15 @@ app.use('/graphql', graphqlHTTP({
 }));
 app.listen(4000);
 console.log('Running a GraphQL API server at localhost:4000/graphql');
+```
 
 ## Testing
 
 Run GraphQL Server:
 
+```
 sudo node schema.js
+```
 
 If you navigate in a web browser to http://localhost:4000/graphql, you should see an interface that lets you enter queries.
 
