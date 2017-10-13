@@ -13,6 +13,7 @@ We also recommend to use Ubuntu 16.04 or later.
 Install Express GraphQL:
 
 ```
+sudo npm init
 sudo npm install express express-graphql graphql --save
 ```
 
