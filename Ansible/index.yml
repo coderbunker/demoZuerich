@@ -1,0 +1,42 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: install nginx
+    apt: name=nginx state=present
+    sudo: yes
+
+  - name: install npm
+    apt: name=npm update_cache=true state=latest
+
+  - name: Ensure bash latest versions
+    apt: name=bash update_cache=true state=latest
+
+  - name: Ensure OpenSSl latest versions
+    apt: name=openssl update_cache=true state=latest
+
+  - name: Ensure libssl latest versions
+    apt: name=libpq-dev update_cache=true state=latest
+
+  - name: Ensure python python-psycopg2 latest version
+    apt: name=python-psycopg2 update_cache=true state=latest
+
+  - name: install postgresql
+    apt: name=postgresql update_cache=true  state=installed
+
+  - name: install postgresql-contrib
+    apt: name=postgresql-contrib update_cache=true  state=installed
+
+  - name: Ensure the PostgreSQL service is running
+    service: name=postgresql state=started enabled=yes
+  
+  - name: Restart postgre
+    service: name=postgresql state=restarted enabled=true
+
+  - name: install graphql npm
+    npm:
+      name: graphql
+      global: yes
+      state: present

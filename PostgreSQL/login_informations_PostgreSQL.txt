@@ -1,0 +1,23 @@
+postgresql informations:
+
+IP: 192.168.1.231 / 5432
+
+user: alessandro_pg
+pw: Lucatoni22
+
+user: postgres (Admin) 
+pw: Asdf@1234
+
+user: sheryl_bg	
+pw: Lucatoni22
+
+groups:
+
+name: ATLAS-AI, members: alessandro_pg, sheryl_bg, postgres (ALL PRIVILEGES)
+
+
+databases:
+
+name: atlasai, schema: atlas
+name: broker_rabbitmq, schema: broker_rabbitmq
+name: node_red, schema: node_red 
