@@ -1,4 +1,4 @@
-# 1. Nginx
+# 1. Install Nginx
 
 Nginx is a open source software, HTTP server, reverse proxy and also a proxy server for email (IMAP/POP3). We'll discuss how to get Nginx installed on your Ubuntu 16.04 server.
 
