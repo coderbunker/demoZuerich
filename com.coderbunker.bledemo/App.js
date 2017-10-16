@@ -32,7 +32,6 @@ export default class App extends React.Component {
         this.handleAppStateChange = this.handleAppStateChange.bind(this);
         this.handleDiscoverPeripheral = this.handleDiscoverPeripheral.bind(this);
         this.handleStopScan = this.handleStopScan.bind(this);
-
     }
 
     componentDidMount() {
@@ -108,6 +107,7 @@ export default class App extends React.Component {
             });
         }
     }
+
     getDiscoveries()
     {
         BleManager.getDiscoveredPeripherals([])
