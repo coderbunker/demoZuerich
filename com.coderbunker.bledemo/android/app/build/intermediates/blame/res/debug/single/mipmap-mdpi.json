@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "C:\\demoZuerich\\com.coderbunker.bledemo\\ble\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi\\ic_launcher.png",
+        "source": "C:\\demoZuerich\\com.coderbunker.bledemo\\ble\\android\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\demoZuerich\\com.coderbunker.bledemo\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi\\ic_launcher.png",
+        "source": "C:\\demoZuerich\\com.coderbunker.bledemo\\android\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+    }
+]

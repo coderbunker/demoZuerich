@@ -26,12 +26,13 @@ export default class App extends React.Component {
             scanning: false,
             peripherals: new Map(),
             appState: '',
-            discoveries: 99
+            discoveries: 0
         }
 
         this.handleAppStateChange = this.handleAppStateChange.bind(this);
         this.handleDiscoverPeripheral = this.handleDiscoverPeripheral.bind(this);
         this.handleStopScan = this.handleStopScan.bind(this);
+
     }
 
     componentDidMount() {
@@ -70,10 +71,7 @@ export default class App extends React.Component {
             console.log('App has come to the foreground!')
             BleManager.getConnectedPeripherals([]).then((peripheralsArray) => {
                 console.log('Connected peripherals: ' + peripheralsArray.length);
-                if (peripheralsArray.length > 0)
-                {
-                    console.log(peripheralsArray);
-                }
+                console.log(peripheralsArray);
             }).catch(function (e) {
                 console.log(e); // "oh, no!"
             });
@@ -83,7 +81,6 @@ export default class App extends React.Component {
 
     handleDiscoverPeripheral(peripheral)
     {
-        console.log('is in Listener' + peripheral)
         var peripherals = this.state.peripherals;
         if (!peripherals.has(peripheral.id)) {
             console.log('Got ble peripheral', peripheral);
@@ -107,16 +104,25 @@ export default class App extends React.Component {
             });
         }
     }
-
     getDiscoveries()
     {
         BleManager.getDiscoveredPeripherals([])
             .then((peripheralsArray) => {
                 // Success code
                 console.log('Discovered peripherals: ' + peripheralsArray.length);
+                console.log('first id: ' + this.state.peripherals.next().id);
                 this.setState({ discoveries: peripheralsArray.length });
             }).catch(function (error) {
                 console.log('ERROR: There has been a problem with accesing the discovered peripherals: ' + error.message);
+            });
+    }
+
+    getService(id)
+    {
+        BleManager.retrieveServices(id)
+            .then((peripheralInfo) => {
+                // Success code
+                console.log('Peripheral info:', peripheralInfo);
             });
     }
 
@@ -130,7 +136,10 @@ export default class App extends React.Component {
             <TouchableHighlight style={{ marginTop: 40, margin: 20, padding: 20, backgroundColor: '#ccc' }} onPress={() => this.getDiscoveries()}>
                 <Text>Get Found Devices</Text>
             </TouchableHighlight>
-            <Text>Devices discovered {this.state.discoveries} </Text>
+            <Text>Devices discovered: {this.state.discoveries} </Text>
+            <TouchableHighlight disabled={this.state.discoveries == 0} style={{ marginTop: 40, margin: 20, padding: 20, backgroundColor: '#ccc' }} onPress={() => this.getService(this.state.peripherals[0].id)}>
+                <Text>Get Discovered service</Text>
+            </TouchableHighlight>
         </View>
     );
   }

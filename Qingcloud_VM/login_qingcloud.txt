@@ -1,0 +1,8 @@
+# Login Credentials for already existing Qingcloud account
+
+Here are the Credentials to login to the Qingcloud website. 
+
+## Login Data
+
+Email: cristian.valente15@gmail.com
+Password: Coderbunker1!
