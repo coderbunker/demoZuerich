@@ -7,13 +7,32 @@ import fonts from './src/style/fonts';
 import * as GLOBAL from './src/utils/globals';
 
 export default class App extends React.Component {
+
+  constructor(props) {
+    super(props)
+    
+    
+    // initial state
+    this.state = {
+      page: "number"  
+    }
+  }
+
+  _onPress(value){
+    console.log(value)
+    this.setState({
+      page: value
+    })
+  }
+
   render() {
-    console.log("hello: " + GLOBAL.ACT_SIZE);
-    if(GLOBAL.ACT_SIZE == 'number')
+    if(this.state.page=='number')
     {
       return (
         <View style={containers.main}>
-          <Header />
+          <Header
+            eventListener={this._onPress.bind(this)}
+          />
           <View style={containers.content}>
             <View style={containers.circle}>
               <Temperature />
@@ -22,10 +41,12 @@ export default class App extends React.Component {
         </View>
       );
     }
-    else {
+    else if(this.state.page=='graph') {
       return (
         <View style={containers.main}>
-          <Header />
+          <Header
+            eventListener={this._onPress.bind(this)}
+          />
           <View style={containers.content}>
             <Text>Graph</Text>
           </View>

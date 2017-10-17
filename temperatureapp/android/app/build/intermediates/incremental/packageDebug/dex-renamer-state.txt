@@ -1,4 +1,4 @@
-#Tue Oct 17 04:19:55 CEST 2017
-base.0=C\:\\Users\\Gianluca\\demoZuerich\\temperatureapp\\android\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main
+#Tue Oct 17 05:43:54 CEST 2017
+base.0=C\:\\dev\\Shanghai\\demoZuerich\\temperatureapp\\android\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main
 renamed.0=classes.dex
-file.0=C\:\\Users\\Gianluca\\demoZuerich\\temperatureapp\\android\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main\\classes.dex
+file.0=C\:\\dev\\Shanghai\\demoZuerich\\temperatureapp\\android\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main\\classes.dex

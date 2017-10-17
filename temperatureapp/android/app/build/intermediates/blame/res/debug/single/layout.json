@@ -4,28 +4,28 @@
         "source": "C:\\dev\\Shanghai\\demoZuerich\\temperatureapp\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\layout\\abc_alert_dialog_material.xml"
     },
     {
-        "merged": "C:\\dev\\Shanghai\\demoZuerich\\temperatureapp\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_dialog_title_material.xml",
-        "source": "C:\\dev\\Shanghai\\demoZuerich\\temperatureapp\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\layout\\abc_dialog_title_material.xml"
-    },
-    {
         "merged": "C:\\dev\\Shanghai\\temperatureapp\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_title_item.xml",
         "source": "C:\\dev\\Shanghai\\temperatureapp\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\layout\\abc_action_bar_title_item.xml"
     },
     {
-        "merged": "C:\\dev\\Shanghai\\temperatureapp\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple_overlay_action_mode.xml",
-        "source": "C:\\dev\\Shanghai\\temperatureapp\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\layout\\abc_screen_simple_overlay_action_mode.xml"
+        "merged": "C:\\dev\\Shanghai\\demoZuerich\\temperatureapp\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_dialog_title_material.xml",
+        "source": "C:\\dev\\Shanghai\\demoZuerich\\temperatureapp\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\layout\\abc_dialog_title_material.xml"
     },
     {
         "merged": "C:\\Users\\Gianluca\\demoZuerich\\temperatureapp\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_toolbar.xml",
         "source": "C:\\Users\\Gianluca\\demoZuerich\\temperatureapp\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\layout\\abc_screen_toolbar.xml"
     },
     {
-        "merged": "C:\\Users\\Gianluca\\demoZuerich\\temperatureapp\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\support_simple_spinner_dropdown_item.xml",
-        "source": "C:\\Users\\Gianluca\\demoZuerich\\temperatureapp\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\layout\\support_simple_spinner_dropdown_item.xml"
+        "merged": "C:\\dev\\Shanghai\\temperatureapp\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple_overlay_action_mode.xml",
+        "source": "C:\\dev\\Shanghai\\temperatureapp\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\layout\\abc_screen_simple_overlay_action_mode.xml"
     },
     {
         "merged": "C:\\Users\\Gianluca\\demoZuerich\\temperatureapp\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fps_view.xml",
         "source": "C:\\Users\\Gianluca\\demoZuerich\\temperatureapp\\android\\app\\build\\intermediates\\exploded-aar\\com.facebook.react\\react-native\\0.48.4\\res\\layout\\fps_view.xml"
+    },
+    {
+        "merged": "C:\\Users\\Gianluca\\demoZuerich\\temperatureapp\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\support_simple_spinner_dropdown_item.xml",
+        "source": "C:\\Users\\Gianluca\\demoZuerich\\temperatureapp\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\layout\\support_simple_spinner_dropdown_item.xml"
     },
     {
         "merged": "C:\\dev\\Shanghai\\demoZuerich\\temperatureapp\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_media_action.xml",
@@ -112,12 +112,12 @@
         "source": "C:\\Users\\Gianluca\\demoZuerich\\temperatureapp\\android\\app\\build\\intermediates\\exploded-aar\\com.facebook.react\\react-native\\0.48.4\\res\\layout\\redbox_item_frame.xml"
     },
     {
-        "merged": "C:\\dev\\Shanghai\\demoZuerich\\temperatureapp\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple.xml",
-        "source": "C:\\dev\\Shanghai\\demoZuerich\\temperatureapp\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\layout\\abc_screen_simple.xml"
-    },
-    {
         "merged": "C:\\dev\\Shanghai\\temperatureapp\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_toolbar.xml",
         "source": "C:\\dev\\Shanghai\\temperatureapp\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\layout\\abc_screen_toolbar.xml"
+    },
+    {
+        "merged": "C:\\dev\\Shanghai\\demoZuerich\\temperatureapp\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple.xml",
+        "source": "C:\\dev\\Shanghai\\demoZuerich\\temperatureapp\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\layout\\abc_screen_simple.xml"
     },
     {
         "merged": "C:\\Users\\Gianluca\\demoZuerich\\temperatureapp\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_up_container.xml",
