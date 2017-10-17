@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, Button } from 'react-native';
 import containers from '../style/containers';
 import fonts from '../style/fonts';
 
@@ -22,12 +22,20 @@ class Header extends React.Component {
         <View style={containers.header}>
             <Text style={fonts.title}>Temperature App!!</Text>
             <View style={containers.navigation}>
-                <TouchableOpacity onPress={this._setActSite("number")} style={containers.navLeft}>
-                    <Text style={fonts.nav}>Number</Text>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={this._setActSite("graph")} style={containers.navRight}>
-                    <Text style={fonts.nav}>Graph</Text>
-                </TouchableOpacity>
+            
+            <Button title = 'Number' style={containers.navLeft}
+              onPress={() => {
+                console.log('number!')
+                this._setActSite("number")
+              }}>
+            </Button>
+
+            <Button title = 'Graph' style={containers.navRight}
+              onPress={() => {
+                console.log('graph!')
+                this._setActSite("graph")
+              }}>
+            </Button>
             </View>
         </View>
       )

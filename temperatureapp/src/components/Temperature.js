@@ -29,7 +29,7 @@ class Temperature extends React.Component {
     {
       this.getMoviesFromApi().then((response) => {
         var film = response.movies[0].title
-        console.log("received data: " + film);
+        //console.log("received data: " + film);
         this.setState ({
           isLoading: false,
           display: film
@@ -42,7 +42,7 @@ class Temperature extends React.Component {
         return <Text>Loading...</Text>
       }
       var display = this.state.display;
-      console.log(display);
+      //console.log(display);
       return (
         <Text>{display}</Text>
       )
