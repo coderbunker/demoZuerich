@@ -1,9 +1,10 @@
 // Define the pin on which the sensor is connected
 const int sensorPin = A0;
+float tempvar;
 
 void setup() {
   //Beginns a connection to the computer
-  Serial.begin(9600);
+  Serial.begin(1200);
 }
 void loop() {
   //read from the sensor
@@ -22,5 +23,8 @@ void loop() {
   float Temperature  = (Volts*100.000);
 
   //Write the temperature to the computer
-  Serial.println(Temperature);
+  if(Temperature != tempvar){
+    tempvar = Temperature;
+      Serial.println(tempvar);
+  }
 }
