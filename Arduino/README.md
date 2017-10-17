@@ -8,7 +8,7 @@ You will need:
 * an Arduino with the usb cable to connect it to the Computer
 * some cables  
 * a temperature sensor
-* the Arduino IDE installed (downloadable for free here https://www.arduino.cc/en/Main/Software)
+* the Arduino IDE installed (downloadable for free [here](https://www.arduino.cc/en/Main/Software))
 
 ## Setup
 
@@ -21,7 +21,7 @@ Alternatively you could wire it up like [this](https://imgur.com/njYTYXn) so you
 Open the file temp_sensor.ino with the Arduino IDE and upload it to the Arduino.
 If you now open the serial monitor in the IDE you shoud see the data coming from the Arduino
 
-##Test
+## Test
 
 You can test if everything is correct by holding the temperature sensor between your fingers.
 You should see the temperature increase
