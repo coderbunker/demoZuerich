@@ -32,6 +32,7 @@ export default class App extends React.Component {
         this.handleAppStateChange = this.handleAppStateChange.bind(this);
         this.handleDiscoverPeripheral = this.handleDiscoverPeripheral.bind(this);
         this.handleStopScan = this.handleStopScan.bind(this);
+
     }
 
     componentDidMount() {
@@ -70,10 +71,6 @@ export default class App extends React.Component {
             console.log('App has come to the foreground!')
             BleManager.getConnectedPeripherals([]).then((peripheralsArray) => {
                 console.log('Connected peripherals: ' + peripheralsArray.length);
-                if (peripheralsArray.length > 0)
-                {
-                    console.log(peripheralsArray);
-                }
             }).catch(function (e) {
                 console.log(e); // "oh, no!"
             });
@@ -107,7 +104,6 @@ export default class App extends React.Component {
             });
         }
     }
-
     getDiscoveries()
     {
         BleManager.getDiscoveredPeripherals([])
