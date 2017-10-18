@@ -7,8 +7,8 @@ The purpose of the Arduino was to collect data like the temperature from a room 
 ## Prerequisites
 
 You will need:
-* an Arduino with the usb cable to connect it to the Computer (we used an Arduino Uno)
-* some cables   (we used 5x male to male cables and 3x male to female to connect the sensor to the breadboard)
+* an Arduino with the usb cable to connect it to the computer (we used an Arduino Uno)
+* some cables (we used 5x male to male cables and 3x male to female to connect the sensor to the breadboard)
 * a breadbord (we used a medium sized one like [this](https://cdn.logicsupply.com/media/catalog/product/cache/1/small_image/425x/9df78eab33525d08d6e5fb8d27136e95/p/t/ptbb-400w-medium-breadboard-white-400points.jpg) but a smaller one would have done the job too)
 * a temperature sensor (we used a LM35DZ temperature sensor datasheet available [here](http://www.futurlec.com/Datasheet/Linear/LM35DZ.pdf)
 * the Arduino IDE installed (downloadable for free [here](https://www.arduino.cc/en/Main/Software))
@@ -28,3 +28,7 @@ If you now open the serial monitor in the IDE you should see the data coming fro
 
 You can test if everything is correct by holding the temperature sensor between your fingers.
 You should see the temperature increase
+
+#### Important bits of Code
+
+To calculate the temperature from the output of the temperature sensor we first divided the output by 1024 and multiply it by 5 to get the output in voltage. afterwarts we multiply the voltage by 100 to get the temperature. it is not the most optimal way to to it but it made it easyer to comprehend and it allows to output the voltage for debugging
