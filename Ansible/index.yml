@@ -8,8 +8,14 @@
     apt: name=nginx state=present
     sudo: yes
 
-  - name: install npm
-    apt: name=npm update_cache=true state=latest
+  - name: Error installing npm
+    shell: curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+    
+  - name: Install apt npm
+    apt: name=nodejs
+  
+  - name: Install express-graphql
+    shell: npm install  express express-graphql graphql
 
   - name: Ensure bash latest versions
     apt: name=bash update_cache=true state=latest
@@ -22,21 +28,24 @@
 
   - name: Ensure python python-psycopg2 latest version
     apt: name=python-psycopg2 update_cache=true state=latest
-
-  - name: install postgresql
-    apt: name=postgresql update_cache=true  state=installed
-
-  - name: install postgresql-contrib
-    apt: name=postgresql-contrib update_cache=true  state=installed
+  
+  - name: Install postgreSQL
+    apt: name=postgresql update_cache=true state=latest
 
   - name: Ensure the PostgreSQL service is running
     service: name=postgresql state=started enabled=yes
   
-  - name: Restart postgre
-    service: name=postgresql state=restarted enabled=true
+  - name: Edit postgresql config file
+    lineinfile: 
+      dest: /etc/postgresql/9.5/main/pg_hba.conf
+      regexp: "^hosts+all+192.168.17.133+127.0.0.1/32s+trust$"
+      insertafter: "^#sIPv4slocal.+"
+      line: "host    all             192.168.17.133  127.0.0.1/32            trust"
 
-  - name: install graphql npm
-    npm:
-      name: graphql
-      global: yes
-      state: present
+  - name: install rabbitMQ
+    apt: name=rabbitmq-server  update_cache=true state=latest
+
+  - name: enable mqtt on rabbitmq
+    rabbitmq_plugin:
+      names: rabbitmq_mqtt
+      state: enabled
