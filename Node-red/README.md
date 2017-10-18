@@ -23,6 +23,7 @@ Node-red collects the data from the Arduino and pushes it on the Queue (RabbitMQ
 * sudo npm install -g node-red-contrib-amqp2 (in the directory /) (to install the mod for amqp2(RabbitMQ))
 3. Type in the command: Node-red, to start node-red and go in your Browser to localhost with port 1880.
 4. Now you can work with Node-red.
+(5. for the right flow, see: https://www.youtube.com/watch?v=S05QMLl3wfs&list=PLhVLYZA4y4CZ-37uF35Rih01o-AwpLXgD&index=3 
 
 
 ### Prerequisites
