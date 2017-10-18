@@ -4,7 +4,7 @@ RabbitMQ is a Open Source Message Broker Software, which implements the Advanced
 Applications can connect to each other, as components of a larger application, or to user devices and data. Messaging is asynchronous, decoupling applications by separating sending and receiving data.
 The RabbitMQ is connected to PostgreSQL-Server and Node-RED. This instructions are based on Ubuntu Server 16.04
 
-## Installation
+## Installation:
 
 ### Server:
 
