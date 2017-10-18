@@ -19,9 +19,9 @@ class Temperature extends React.Component {
   
     async getMoviesFromApi() {
       try {
-        let response = await fetch('http://localhost:8081/temperature.json'); // path to json-file
+        let response = await fetch('http://192.168.1.125/temperature.json'); // path to json-file
         let responseJson = await response.json();
-        return responseJson.data.allArduinos.edges[0].node.temperature;
+        return responseJson.data.allArduinos.edges[0].node.temperature + "°C";
       } catch(error) {
         console.error(error);
         return "error";

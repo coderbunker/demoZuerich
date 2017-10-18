@@ -1,14 +1,6 @@
 [
     {
-        "merged": "C:\\dev\\Shanghai\\demoZuerich\\temperatureapp\\android\\app\\build\\intermediates\\res\\merged\\debug\\xml\\preferences.xml",
-        "source": "C:\\dev\\Shanghai\\demoZuerich\\temperatureapp\\android\\app\\build\\intermediates\\exploded-aar\\com.facebook.react\\react-native\\0.48.4\\res\\xml\\preferences.xml"
-    },
-    {
         "merged": "C:\\Users\\Gianluca\\demoZuerich\\temperatureapp\\android\\app\\build\\intermediates\\res\\merged\\debug\\xml\\preferences.xml",
         "source": "C:\\Users\\Gianluca\\demoZuerich\\temperatureapp\\android\\app\\build\\intermediates\\exploded-aar\\com.facebook.react\\react-native\\0.48.4\\res\\xml\\preferences.xml"
-    },
-    {
-        "merged": "C:\\dev\\Shanghai\\temperatureapp\\android\\app\\build\\intermediates\\res\\merged\\debug\\xml\\preferences.xml",
-        "source": "C:\\dev\\Shanghai\\temperatureapp\\android\\app\\build\\intermediates\\exploded-aar\\com.facebook.react\\react-native\\0.48.4\\res\\xml\\preferences.xml"
     }
 ]
