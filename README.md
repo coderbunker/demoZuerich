@@ -10,9 +10,9 @@ This is the diagram of the finished product:
 
 1. Arduino:
 * To get the arduino up and running you should be able to follow the instructions in the 	Arduino folder (Coderbunker / demoZuerich)
-* For further infomation on the programming language you can visit https://www.arduino.cc/en/	    Reference/HomePage
+* For further infomation on the programming language you can visit https://www.arduino.cc/en/Reference/HomePage
 * For more information about the electronics https://learn.sparkfun.com/tutorials is a useful page
-* https://www.tinkercad.com/things/35a5232xdGf-welcome-to-arduino/editel?			collectionid=O0QHK73ISCC2DXD&lessonid=EIF8DQEISCBOSF2&projectid=O0QHK73ISCC2DXD#/sxs-viewer
+* https://www.tinkercad.com/things/35a5232xdGf-welcome-to-arduino/editel?collectionid=O0QHK73ISCC2DXD&lessonid=EIF8DQEISCBOSF2&projectid=O0QHK73ISCC2DXD#/sxs-viewer
 
 2. Node-red:
 * To get the arduino up and running you should be able to follow the instructions in the Node-red folder (Coderbunker / demoZuerich)
