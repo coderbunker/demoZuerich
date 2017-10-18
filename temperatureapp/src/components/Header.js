@@ -9,12 +9,6 @@ class Header extends React.Component {
       super(props);
 
     }
-
-    _setActSite(origin) {
-      GLOBAL.ACT_SIZE = origin;
-      console.log("setter: " + GLOBAL.ACT_SIZE)
-      alert("setter: " + GLOBAL.ACT_SIZE)
-    }
     
     render()
     {

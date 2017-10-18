@@ -12,13 +12,16 @@ class Temperature extends React.Component {
         isLoading: true,
         display: ""
       }
+      setInterval(() => {
+        console.log("interval")
+      }, 1000);
     }
   
     async getMoviesFromApi() {
       try {
-        let response = await fetch('https://facebook.github.io/react-native/movies.json');
+        let response = await fetch('http://localhost:8081/temperature.json'); // path to json-file
         let responseJson = await response.json();
-        return responseJson;
+        return responseJson.data.allArduinos.edges[0].node.temperature;
       } catch(error) {
         console.error(error);
         return "error";
@@ -28,11 +31,11 @@ class Temperature extends React.Component {
     render()
     {
       this.getMoviesFromApi().then((response) => {
-        var film = response.movies[0].title
+        var temperature = response
         //console.log("received data: " + film);
         this.setState ({
           isLoading: false,
-          display: film
+          display: temperature
         })
       }, (error) => {
         console.error(error);
