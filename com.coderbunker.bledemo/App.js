@@ -12,6 +12,7 @@ import {
     NativeModules,
 } from 'react-native';
 import BleManager from 'react-native-ble-manager';
+import Toast, { DURATION } from 'react-native-easy-toast'
 
 const BleManagerModule = NativeModules.BleManager;
 const bleManagerEmitter = new NativeEventEmitter(BleManagerModule);
@@ -41,6 +42,7 @@ export default class App extends React.Component {
 
         BleManager.start().then(() => {
             console.log('BLE Module initialized');
+            this.refs.toast.show('BLE Module initialized', 400);
         }).catch(function (e) {
             console.log("ERROR: Couldn't start BleManager: " + e);
             });
@@ -117,6 +119,7 @@ export default class App extends React.Component {
                 console.log('ERROR: There has been a problem with accesing the discovered peripherals: ' + error.message);
             });
         this.getDeviceList();
+        this.refs.toast.show('Get discoveries', 400);
     }
 
     getService(id)
@@ -166,9 +169,12 @@ export default class App extends React.Component {
             </TouchableHighlight>
             <Text>Devices discovered: {this.state.discoveries} </Text>
             <Text>Device List: {this.state.deviceList}</Text>
+            
+            
             <TouchableHighlight disabled={this.state.discoveries == 0} style={{ marginTop: 40, margin: 20, padding: 20, backgroundColor: '#ccc' }} onPress={() => this.getService(this.state.peripherals.keys().next().value)}>
                 <Text>Get Discovered service</Text>
             </TouchableHighlight>
+            <Toast ref="toast" />
         </View>
     );
   }
