@@ -10,6 +10,7 @@ import {
     NativeAppEventEmitter,
     NativeEventEmitter,
     NativeModules,
+    ListView
 } from 'react-native';
 import BleManager from 'react-native-ble-manager';
 import Toast, { DURATION } from 'react-native-easy-toast'
@@ -169,7 +170,10 @@ export default class App extends React.Component {
             </TouchableHighlight>
             <Text>Devices discovered: {this.state.discoveries} </Text>
             <Text>Device List: {this.state.deviceList}</Text>
-            
+            <ListView
+                dataSource={this.state.dataSource}
+                renderRow={(rowData) => <Text>{rowData}</Text>}
+            />
             
             <TouchableHighlight disabled={this.state.discoveries == 0} style={{ marginTop: 40, margin: 20, padding: 20, backgroundColor: '#ccc' }} onPress={() => this.getService(this.state.peripherals.keys().next().value)}>
                 <Text>Get Discovered service</Text>
