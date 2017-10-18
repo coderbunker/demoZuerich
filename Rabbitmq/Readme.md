@@ -37,18 +37,18 @@ or for guests:
 username: guest
 password: guest
 
-## Status from the RabbitMQ service:
+### Status from the RabbitMQ service:
 
 invoke-rc.d rabbitmq-server status
 
-## Start RabbitMQ service:
+### Start RabbitMQ service:
 
 invoke-rc.d rabbitmq-server start
 
-## Stop RabbitMQ service:
+### Stop RabbitMQ service:
 
 invoke-rc.d rabbitmq-server stop
 
-## Version
+### Version
 
 rabbitmq v.4.2.6
