@@ -4,7 +4,7 @@ additional modules used in this project:
 
 react-native-ble-manager: https://github.com/innoveit/react-native-ble-manager
 
-##Usage
+## Usage
 
 After pulling from git, you can run the code with:
 
