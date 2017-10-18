@@ -83,7 +83,7 @@ export default class App extends React.Component {
     {
         var peripherals = this.state.peripherals;
         if (!peripherals.has(peripheral.id)) {
-            console.log('Got ble peripheral', peripheral);
+            console.log('Got ble peripheral', peripheral.id);
             peripherals.set(peripheral.id, peripheral);
             this.setState({ peripherals })
         }
@@ -110,7 +110,7 @@ export default class App extends React.Component {
             .then((peripheralsArray) => {
                 // Success code
                 console.log('Discovered peripherals: ' + peripheralsArray.length);
-                console.log('first id: ' + this.state.peripherals.next().id);
+                console.log(this.state.peripherals.keys().next().value);
                 this.setState({ discoveries: peripheralsArray.length });
             }).catch(function (error) {
                 console.log('ERROR: There has been a problem with accesing the discovered peripherals: ' + error.message);
@@ -123,6 +123,8 @@ export default class App extends React.Component {
             .then((peripheralInfo) => {
                 // Success code
                 console.log('Peripheral info:', peripheralInfo);
+            }).catch(function (error) {
+                console.log('ERROR: There has been a problem with accesing  the service: ' + error.message);
             });
     }
 
@@ -137,7 +139,7 @@ export default class App extends React.Component {
                 <Text>Get Found Devices</Text>
             </TouchableHighlight>
             <Text>Devices discovered: {this.state.discoveries} </Text>
-            <TouchableHighlight disabled={this.state.discoveries == 0} style={{ marginTop: 40, margin: 20, padding: 20, backgroundColor: '#ccc' }} onPress={() => this.getService(this.state.peripherals[0].id)}>
+            <TouchableHighlight disabled={this.state.discoveries == 0} style={{ marginTop: 40, margin: 20, padding: 20, backgroundColor: '#ccc' }} onPress={() => this.getService(this.state.peripherals.keys().next().value)}>
                 <Text>Get Discovered service</Text>
             </TouchableHighlight>
         </View>
