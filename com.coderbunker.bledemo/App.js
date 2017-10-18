@@ -26,7 +26,9 @@ export default class App extends React.Component {
             scanning: false,
             peripherals: new Map(),
             appState: '',
-            discoveries: 0
+            discoveries: 0,
+            deviceList: '',
+            errormessage: 'No current errors!'
         }
 
         this.handleAppStateChange = this.handleAppStateChange.bind(this);
@@ -41,7 +43,8 @@ export default class App extends React.Component {
         BleManager.start().then(() => {
             console.log('BLE Module initialized');
         }).catch(function (e) {
-            console.log("ERROR: Couldn't start BleManager: " + e)
+            console.log("ERROR: Couldn't start BleManager: " + e);
+            this.setState({ errormessage: "ERROR: Couldn't start BleManager: " + e });
             });
 
         if (Platform.OS = 'android') {
@@ -74,6 +77,7 @@ export default class App extends React.Component {
                 console.log(peripheralsArray);
             }).catch(function (e) {
                 console.log(e); // "oh, no!"
+                this.setState({ errormessage: e });
             });
         }
         this.setState({ appState: nextAppState });
@@ -101,6 +105,7 @@ export default class App extends React.Component {
                 this.setState({ scanning: true });
             }).catch(function (error) {
                 console.log('ERROR: There has been a problem with starting the scan: ' + error.message);
+                this.setState({ errormessage: 'ERROR: There has been a problem with starting the scan: ' + error.message });
             });
         }
     }
@@ -113,8 +118,11 @@ export default class App extends React.Component {
                 console.log(this.state.peripherals.keys().next().value);
                 this.setState({ discoveries: peripheralsArray.length });
             }).catch(function (error) {
-                console.log('ERROR: There has been a problem with accesing the discovered peripherals: ' + error.message);
+                var comperror = 'ERROR: There has been a problem with accesing the discovered peripherals: ' + error.message
+                console.log(comperror);
+                this.setState({ errormessage: comperror });
             });
+        this.getDeviceList();
     }
 
     getService(id)
@@ -124,8 +132,22 @@ export default class App extends React.Component {
                 // Success code
                 console.log('Peripheral info:', peripheralInfo);
             }).catch(function (error) {
-                console.log('ERROR: There has been a problem with accesing  the service: ' + error.message);
+                var comperror = 'ERROR: There has been a problem with accesing  the service at ' + id + ': ' + error.message
+                console.log(comperror);
+                this.setState({ errormessage: comperror });
             });
+    }
+
+    getDeviceList()
+    {
+        var ret = '';
+        console.log(this.state.peripherals.keys().length);
+        for (var i = 0; i < this.state.peripherals.keys().length; i++)
+        {
+            ret += this.state.peripherals.keys().next().value + '; ';
+        }
+        this.setState({ deviceList: ret });
+        console.log(ret);
     }
 
   render() {
@@ -139,9 +161,11 @@ export default class App extends React.Component {
                 <Text>Get Found Devices</Text>
             </TouchableHighlight>
             <Text>Devices discovered: {this.state.discoveries} </Text>
+            <Text>Device List: {this.state.deviceList}</Text>
             <TouchableHighlight disabled={this.state.discoveries == 0} style={{ marginTop: 40, margin: 20, padding: 20, backgroundColor: '#ccc' }} onPress={() => this.getService(this.state.peripherals.keys().next().value)}>
                 <Text>Get Discovered service</Text>
             </TouchableHighlight>
+            <Text>Current Error: {this.state.error}</Text>
         </View>
     );
   }
