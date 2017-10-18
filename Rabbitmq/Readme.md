@@ -1,6 +1,8 @@
 RabbitMQ
 
-The RabbitMQ is connected to PostgreSQL-Server, Node-RED and GraphSQL. This instructions are based on Ubuntu Server 16.04
+RabbitMQ is a Open Source Message Broker Software, which implements the Advanced Message Queuing Protocol (AMQP, AMQP2)
+Applications can connect to each other, as components of a larger application, or to user devices and data. Messaging is asynchronous, decoupling applications by separating sending and receiving data.
+The RabbitMQ is connected to PostgreSQL-Server and Node-RED. This instructions are based on Ubuntu Server 16.04
 
 Installation
 
@@ -15,7 +17,7 @@ Web-GUI:
 
 rabbitmq-plugins enable rabbitmq_management
 
-Prerequisites
+Requirements
 
 Ubuntu 16.04
 
