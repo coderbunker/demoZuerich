@@ -19,17 +19,11 @@ Prerequisites
 
 Ubuntu 16.04
 
-Get Started
-
-Getting to postgres console:
-
-sudo -i -u postgres
-
 Network access:
 If you are on the local machine, type in the URL: 127.0.0.1:15672
 If you are on a remote machine, type in te URL: "IP of the machine":15672
 
-After that you can login to postgresql with any computer in network.
+The RabbitMQ Service will start automatically after a reboot from the server.
 
 Authentification:
 
