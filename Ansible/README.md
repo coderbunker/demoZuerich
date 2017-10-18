@@ -1,58 +1,49 @@
-![PyPI version](https://img.shields.io/pypi/v/ansible.svg)](https://pypi.python.org/pypi/ansible)
-[![Build Status](https://api.shippable.com/projects/573f79d02a8192902e20e34b/badge?branch=devel)](https://app.shippable.com/projects/573f79d02a8192902e20e34b)
-
-
-Ansible
-=======
-
-Ansible is a radically simple IT automation system.  It handles configuration-management, application deployment, cloud provisioning, ad-hoc task-execution, and multinode orchestration - including trivializing things like zero downtime rolling updates with load balancers.
-
-Read the documentation and more at https://ansible.com/
-
-You can find installation instructions [here](https://docs.ansible.com/ansible/intro_installation.html) for a variety of platforms. Most users should probably install a released version of Ansible from `pip`, a package manager or our [release repository](https://releases.ansible.com/ansible/). [Officially supported](https://www.ansible.com/ansible-engine) builds of Ansible are also available. Some power users run directly from the development branch - while significant efforts are made to ensure that `devel` is reasonably stable, you're more likely to encounter breaking changes when running Ansible this way.
-
-Design Principles
-=================
-
-   * Have a dead simple setup process and a minimal learning curve
-   * Manage machines very quickly and in parallel
-   * Avoid custom-agents and additional open ports, be agentless by leveraging the existing SSH daemon
-   * Describe infrastructure in a language that is both machine and human friendly
-   * Focus on security and easy auditability/review/rewriting of content
-   * Manage new remote machines instantly, without bootstrapping any software
-   * Allow module development in any dynamic language, not just Python
-   * Be usable as non-root
-   * Be the easiest IT automation system to use, ever.
-
-Get Involved
-============
-
-   * Read [Community Information](https://docs.ansible.com/community.html) for all kinds of ways to contribute to and interact with the project, including mailing list information and how to submit bug reports and code to Ansible.
-   * All code submissions are done through pull requests.  Take care to make sure no merge commits are in the submission, and use `git rebase` vs `git merge` for this reason.  If submitting a large code change (other than modules), it's probably a good idea to join ansible-devel and talk about what you would like to do or add first and to avoid duplicate efforts.  This not only helps everyone know what's going on, it also helps save time and effort if we decide some changes are needed.
-   * Users list: [ansible-project](https://groups.google.com/group/ansible-project)
-   * Development list: [ansible-devel](https://groups.google.com/group/ansible-devel)
-   * Announcement list: [ansible-announce](https://groups.google.com/group/ansible-announce) - read only
-   * irc.freenode.net: #ansible
-
-Branch Info
+Description
 ===========
+Ansible can be used to automate Server Installation and Configuration.
 
-   * Releases are named after Led Zeppelin songs. (Releases prior to 2.0 were named after Van Halen songs.)
-   * The devel branch corresponds to the release actively under development.
-   * Various release-X.Y branches exist for previous releases.
-   * We'd love to have your contributions, read [Community Information](https://docs.ansible.com/community.html) for notes on how to get started.
+This can be achieved with Playbooks.
+A more detailed description can be seen at: https://ansible.com/
 
-Authors
+Installation (Ubuntu 16.04)
+===========================
+sudo apt install ansible
+
+A general installation guide can be found here: https://docs.ansible.com/ansible/intro_installation.html
+
+First Playbook
+===============
+just create a file with a .yml ending an start writing...
+this can look like this:
+
+---
+#Every playbook starts with 3 lines at the beginning, that is for ansible to realize,
+that this is the beginning of the file
+
+ - hosts:
+#after that you can start by defining the hosts that should be affected/connected to.
+   become: #this is just an additional option (to execute the command as sudo), there are many other to be found on: http://docs.ansible.com/#
+   tasks:
+#then you can start with your first tasks, which will have to be under tasks:
+     - name: First Tasks
+       other options
+
+
+Conclusion
+==========
+Ansible is capable of many things, therefor might require some research.
+Therefor, find out for yourself (cause I'm not getting paid to right this readme... ^_^)
+
+Author
 =======
+Ansible was created by Michael DeHaan (michael.dehaan/gmail/com) and has contributions from over 1000 users (and growing). Thanks everyone!
 
-Ansible was created by [Michael DeHaan](https://github.com/mpdehaan) (michael.dehaan/gmail/com) and has contributions from over 1000 users (and growing).  Thanks everyone!
-
-Ansible is sponsored by [Ansible, Inc](https://ansible.com)
+Ansible is sponsored by Ansible, Inc
 
 License
-=======
+========
 GNU General Public License v3.0
 
-See [COPYING](COPYING) to see the full text.
+See COPYING to see the full text.
 
 https://raw.githubusercontent.com/ansible/ansible/devel/README.md
