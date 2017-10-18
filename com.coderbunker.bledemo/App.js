@@ -143,12 +143,12 @@ export default class App extends React.Component {
 
     getDeviceList()
     {
-        var ret = '';
+        var ret;
+        ret = '';
         console.log(this.state.peripherals.length);
-        for (var i = 0; i < this.state.peripherals.keys().length; i++)
-        {
-            ret += this.state.peripherals.keys().next().value + '; ';
-        }
+        this.state.peripherals.forEach(function (element) {
+            ret += element.id + '; ';
+        });
         this.setState({ deviceList: ret });
         console.log(ret);
     }
