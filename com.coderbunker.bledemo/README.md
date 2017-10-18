@@ -3,6 +3,7 @@ This project was bootstrapped with [Create React Native App](https://github.com/
 additional modules used in this project:
 
 react-native-ble-manager: https://github.com/innoveit/react-native-ble-manager
+react-native-easy-toast: https://github.com/crazycodeboy/react-native-easy-toast
 
 ## Usage
 
