@@ -28,11 +28,7 @@ that this is the beginning of the file
      - name: First Tasks
        other options
 
-
-Conclusion
-==========
-Ansible is capable of many things, therefor might require some research.
-Therefor, find out for yourself (cause I'm not getting paid to right this readme... ^_^)
+To run the playbook you need a working SSH-Connection onto the host system. After this connection is established run the playbook by typing: ansible-playbook 'filepath'
 
 Author
 =======
