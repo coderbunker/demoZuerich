@@ -95,7 +95,7 @@ export default class App extends React.Component {
 
     handleStopScan() {
         console.log('Scan is stopped');
-        this.setState({ scanning: false });
+        this.setState({ scanning: false});
     }
 
     startScan() {
@@ -105,7 +105,7 @@ export default class App extends React.Component {
                 this.setState({ scanning: true });
             }).catch(function (error) {
                 console.log('ERROR: There has been a problem with starting the scan: ' + error.message);
-                this.setState({ errormessage: 'ERROR: There has been a problem with starting the scan: ' + error.message });
+                this.setState({ errormessage: 'ERROR: There has been a problem with starting the scan: ' + error.message});
             });
         }
     }
@@ -120,28 +120,31 @@ export default class App extends React.Component {
             }).catch(function (error) {
                 var comperror = 'ERROR: There has been a problem with accesing the discovered peripherals: ' + error.message
                 console.log(comperror);
-                this.setState({ errormessage: comperror });
+                this.setState({ errormessage: comperror});
             });
         this.getDeviceList();
     }
 
     getService(id)
     {
+        var reterror = '';
         BleManager.retrieveServices(id)
             .then((peripheralInfo) => {
                 // Success code
+                reterror = "No errors in getService"
                 console.log('Peripheral info:', peripheralInfo);
             }).catch(function (error) {
-                var comperror = 'ERROR: There has been a problem with accesing  the service at ' + id + ': ' + error.message
+                var comperror = 'ERROR: There has been a problem with accesing  the service at ' + id + ': ' + error.message;
+                reterror = comperror;
                 console.log(comperror);
-                this.setState({ errormessage: comperror });
             });
+        this.setState({errormessage: reterror})
     }
 
     getDeviceList()
     {
         var ret = '';
-        console.log(this.state.peripherals.keys().length);
+        console.log(this.state.peripherals.length);
         for (var i = 0; i < this.state.peripherals.keys().length; i++)
         {
             ret += this.state.peripherals.keys().next().value + '; ';
@@ -165,7 +168,7 @@ export default class App extends React.Component {
             <TouchableHighlight disabled={this.state.discoveries == 0} style={{ marginTop: 40, margin: 20, padding: 20, backgroundColor: '#ccc' }} onPress={() => this.getService(this.state.peripherals.keys().next().value)}>
                 <Text>Get Discovered service</Text>
             </TouchableHighlight>
-            <Text>Current Error: {this.state.error}</Text>
+            <Text>{this.state.errormessage}</Text>
         </View>
     );
   }
