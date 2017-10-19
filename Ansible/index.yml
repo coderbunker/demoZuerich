@@ -10,7 +10,10 @@
 
   - name: Error installing npm
     shell: curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
-    
+
+  - name: update npm
+    shell: npm i -g npm
+
   - name: Install apt npm
     apt: name=nodejs
   
@@ -30,7 +33,7 @@
     apt: name=python-psycopg2 update_cache=true state=latest
   
   - name: Install postgreSQL
-    apt: name=postgresql update_cache=true state=latest
+    npm: name=postgresql state=latest global=true
 
   - name: Ensure the PostgreSQL service is running
     service: name=postgresql state=started enabled=yes

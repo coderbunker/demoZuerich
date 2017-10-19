@@ -10,7 +10,7 @@ import {
     NativeAppEventEmitter,
     NativeEventEmitter,
     NativeModules,
-    ListView
+    FlatList,
 } from 'react-native';
 import BleManager from 'react-native-ble-manager';
 import Toast, { DURATION } from 'react-native-easy-toast'
@@ -29,7 +29,7 @@ export default class App extends React.Component {
             peripherals: new Map(),
             appState: '',
             discoveries: 0,
-            deviceList: '',
+            listData: [{id: "ID", rssi: "RSSI", name: "Name"}]
         }
 
         this.handleAppStateChange = this.handleAppStateChange.bind(this);
@@ -108,20 +108,6 @@ export default class App extends React.Component {
             });
         }
     }
-    getDiscoveries()
-    {
-        BleManager.getDiscoveredPeripherals([])
-            .then((peripheralsArray) => {
-                // Success code
-                console.log('Discovered peripherals: ' + peripheralsArray.length);
-                console.log(this.state.peripherals.keys().next().value);
-                this.setState({ discoveries: peripheralsArray.length });
-            }).catch(function (error) {
-                console.log('ERROR: There has been a problem with accesing the discovered peripherals: ' + error.message);
-            });
-        this.getDeviceList();
-        this.refs.toast.show('Get discoveries', 400);
-    }
 
     getService(id)
     {
@@ -148,31 +134,30 @@ export default class App extends React.Component {
 
     getDeviceList()
     {
-        var ret;
-        ret = '';
-        console.log(this.state.peripherals.length);
+        var list = [];
+        list.push({ id: "ID", rssi: "RSSI", name: "Name" });
         this.state.peripherals.forEach(function (element) {
-            ret += element.id + ',' + element.rssi + ',' + element.name + '; ';
+            list.push({ id: element.id, rssi: element.rssi, name: element.name });
         });
-        this.setState({ deviceList: ret });
-        console.log(ret);
+        this.setState({ listData: list });
     }
 
-  render() {
+    render() {
     return (
         <View style={styles.container}>
             <TouchableHighlight style={{ marginTop: 40, margin: 20, padding: 20, backgroundColor: '#ccc' }} onPress={() => this.startScan()}>
                 <Text>Scan Bluetooth</Text>
             </TouchableHighlight>
             <Text>Scanning {this.state.scanning ? 'on' : 'off'} </Text>
-            <TouchableHighlight style={{ marginTop: 40, margin: 20, padding: 20, backgroundColor: '#ccc' }} onPress={() => this.getDiscoveries()}>
+            <TouchableHighlight style={{ marginTop: 40, margin: 20, padding: 20, backgroundColor: '#ccc' }} onPress={() => this.getDeviceList()}>
                 <Text>Get Found Devices</Text>
             </TouchableHighlight>
-            <Text>Devices discovered: {this.state.discoveries} </Text>
-            <Text>Device List: {this.state.deviceList}</Text>
-            <ListView
-                dataSource={this.state.dataSource}
-                renderRow={(rowData) => <Text>{rowData}</Text>}
+            <FlatList
+                data={this.state.listData}
+                refreshing={true}
+                renderItem={({ item }) => <Text>{item.id + " - " + item.rssi + " - " + item.name}</Text>}
+                keyExtractor={(item, index) => index}
+                extraData={this.state}
             />
             
             <TouchableHighlight disabled={this.state.discoveries == 0} style={{ marginTop: 40, margin: 20, padding: 20, backgroundColor: '#ccc' }} onPress={() => this.getService(this.state.peripherals.keys().next().value)}>
