@@ -28,7 +28,7 @@ that this is the beginning of the file
      - name: First Tasks
        other options
 
-To run the playbook you need a working SSH-Connection onto the host system. After this connection is established run the playbook by typing: ansible-playbook 'filepath'
+To run the playbook you need a working SSH-Connection onto the host system. After this connection is established run the playbook by typing: ansible-playbook 'filepath'. 
 A good Tutorial Link for SSH is: https://www.digitalocean.com/community/tutorials/how-to-configure-ssh-key-based-authentication-on-a-linux-server
 
 Author
