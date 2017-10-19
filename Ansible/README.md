@@ -11,12 +11,22 @@ sudo apt install ansible
 
 A general installation guide can be found here: https://docs.ansible.com/ansible/intro_installation.html
 
+Hosts
+======
+To connect to the right hosts you have to define them in the following file:
+/etc/ansible/hosts
+
+You can create host-Groups by adding a title in [] brackets
+
+A more detailed explanation can be found here:
+http://docs.ansible.com/ansible/latest/intro_inventory.html
+
 First Playbook
 ===============
 just create a file with a .yml ending an start writing...
 this can look like this:
 
----
+"---"
 #Every playbook starts with 3 lines at the beginning, that is for ansible to realize,
 that this is the beginning of the file
 
@@ -28,7 +38,8 @@ that this is the beginning of the file
      - name: First Tasks
        other options
 
-To run the playbook you need a working SSH-Connection onto the host system. After this connection is established run the playbook by typing: ansible-playbook 'filepath'
+To run the playbook you need a working SSH-Connection onto the host system. After this connection is established run the playbook by typing: ansible-playbook 'filepath'. 
+A good Tutorial Link for SSH is: https://www.digitalocean.com/community/tutorials/how-to-configure-ssh-key-based-authentication-on-a-linux-server
 
 Author
 =======

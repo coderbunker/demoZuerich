@@ -8,7 +8,7 @@ var config = {
 
    devServer: {
       inline: true,
-      port: 8081
+      port: 8080
    },
 
    module: {
@@ -21,7 +21,11 @@ var config = {
             query: {
                presets: ['es2015', 'react']
             }
-         }
+         },
+        {
+            test: /\.css$/,
+            loader: 'style-loader!css-loader',
+        }
       ]
    }
 }
