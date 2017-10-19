@@ -134,10 +134,9 @@ export default class App extends React.Component {
 
     getDeviceList()
     {
-        var statehere = this.state;
         var list = [];
+        list.push({ id: "ID", rssi: "RSSI", name: "Name" });
         this.state.peripherals.forEach(function (element) {
-            list = statehere.listData;
             list.push({ id: element.id, rssi: element.rssi, name: element.name });
         });
         this.setState({ listData: list });
