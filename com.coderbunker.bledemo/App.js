@@ -136,6 +136,10 @@ export default class App extends React.Component {
     {
         var list = [];
         list.push({ id: "ID", rssi: "RSSI", name: "Name" });
+        if (this.state.peripherals.length == 0)
+        {
+            this.refs.toast.show('No peripherals found', 400);
+        }
         this.state.peripherals.forEach(function (element) {
             list.push({ id: element.id, rssi: element.rssi, name: element.name });
         });
